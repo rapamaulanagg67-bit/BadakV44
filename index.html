@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#05080e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>BADAK APPS V4</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="splash">
+  <video autoplay muted playsinline id="introVideo"><source src="splash.mp4" type="video/mp4"></video>
+  <div class="shade"></div>
+  <button id="skip">Lewati</button>
+  <div class="splashText"><div class="splashRhino">🦏</div><h1>BADAK APPS <b>V4</b></h1><p>Premium Digital Experience</p><div class="loadline"><i></i></div></div>
+</div>
+
+<main id="app" class="hidden">
+<header class="header">
+  <div><small>BADAK APPS</small><h1>Dashboard <span>V4</span></h1></div>
+  <button id="settingsBtn" class="round">⚙️</button>
+</header>
+
+<section id="dashboard" class="page active">
+  <div class="welcome glass">
+    <div class="welcomeGlow"></div>
+    <div><small>WELCOME BACK 👋</small><h2 id="welcomeName">Badak User</h2><p>Siap menjalankan proses hari ini?</p></div>
+    <div class="heroRhino">🦏</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b id="totalStat">0</b><small>Total</small></div>
+    <div class="stat"><b id="successStat">0</b><small>Sukses</small></div>
+    <div class="stat"><b id="failedStat">0</b><small>Gagal</small></div>
+  </div>
+
+  <div class="sectionHead"><h3>Paket Badak</h3><span id="chosen">Belum dipilih</span></div>
+  <div id="packages" class="packages"></div>
+
+  <div class="glass form">
+    <label>Nomor tujuan</label>
+    <div class="phone"><strong>+62</strong><input id="phone" inputmode="numeric" placeholder="Silahkan isi nomor terlebih dahulu"></div>
+    <button id="confirm" class="mainBtn">KONFIRMASI <b>→</b></button>
+    <small class="helper">Pastikan nomor sudah benar sebelum memulai.</small>
+  </div>
+
+  <div id="process" class="glass process hidden">
+    <div class="procTop"><div><small>LIVE PROCESS</small><h3 id="procTitle">Menyiapkan...</h3></div><b id="percent">0%</b></div>
+    <div class="progress"><i id="bar"></i></div>
+    <div class="procNumber" id="procNumber">1</div>
+    <p id="procMsg">Menghubungkan proses...</p>
+    <div class="steps"><span class="on" id="s1">01</span><i></i><span id="s2">02</span><i></i><span id="s3">03</span><i></i><span id="s4">✓</span></div>
+  </div>
+</section>
+
+<section id="history" class="page">
+  <div class="title"><small>ACTIVITY</small><h2>Riwayat Badak</h2><p>Semua aktivitas tersimpan di perangkat.</p></div>
+  <div class="filters"><button class="filter active" data-filter="all">Semua</button><button class="filter" data-filter="sukses">Sukses</button><button class="filter" data-filter="gagal">Gagal</button></div>
+  <div id="historyList"></div>
+</section>
+
+<section id="profile" class="page">
+  <div class="profileHero glass">
+    <div class="avatar" id="avatar">🦏</div><div class="profileData"><small>BADAK MEMBER</small><h2 id="profileName">Badak User</h2><p id="profilePhone">Nomor belum diatur</p></div>
+    <button id="nameBtn" class="edit">✏️</button>
+  </div>
+  <div class="profileStats glass"><div><b id="pTotal">0</b><small>Total Proses</small></div><div><b id="pSuccess">0</b><small>Berhasil</small></div><div><b id="pPackages">0</b><small>Paket</small></div></div>
+  <div class="sectionHead"><h3>Pengaturan Profil</h3></div>
+  <div class="list glass">
+    <button id="avatarBtn">📷 <span><b>Ubah Profil</b><small>Pilih ikon avatar</small></span><em>›</em></button>
+    <button id="nameBtn2">✏️ <span><b>Ubah Nama</b><small>Ganti nama tampilan</small></span><em>›</em></button>
+    <button id="clearBtn">🗑️ <span><b>Hapus Riwayat</b><small>Bersihkan aktivitas lokal</small></span><em>›</em></button>
+  </div>
+</section>
+
+<section id="announce" class="page">
+  <div class="title"><small>INFORMATION</small><h2>Pengumuman</h2><p>Informasi terbaru BADAK APPS.</p></div>
+  <div class="notice glass"><div class="noticeIcon">📢</div><div><h3>Web mengalami masalah?</h3><p>Jangan malu-malu. Langsung katakan penyebabnya kepada admin agar masalah bisa diperiksa.</p><a href="https://wa.me/6283817546555" target="_blank">Hubungi Admin CEO RAFFSTR JOKI ELITE ↗</a></div></div>
+  <div class="notice glass"><div class="noticeIcon">🟢</div><div><h3>Status Sistem</h3><p>BADAK APPS V4 siap digunakan. Data profil dan riwayat disimpan secara lokal di browser.</p></div></div>
+  <div class="notice glass"><div class="noticeIcon">🙏</div><div><h3>Terima Kasih</h3><p>Terima kasih telah menggunakan BADAK APPS V4.</p></div></div>
+</section>
+
+<nav>
+ <button class="nav active" data-page="dashboard">🏠<small>Home</small></button>
+ <button class="nav" data-page="history">📜<small>Riwayat</small></button>
+ <button class="nav" data-page="profile">👤<small>Profil</small></button>
+ <button class="nav" data-page="announce">📢<small>Info</small></button>
+</nav>
+</main>
+
+<div id="toast"></div>
+<div id="modal" class="modal hidden"><div class="modalBox"><button id="close">×</button><small>PROFIL</small><h2>Ubah Nama</h2><input id="nameInput" maxlength="30" placeholder="Nama baru"><button id="saveName" class="mainBtn">Simpan</button></div></div>
+<div id="avatarModal" class="modal hidden"><div class="modalBox"><button id="closeAvatar">×</button><small>PROFIL</small><h2>Pilih Avatar</h2><div class="avatars"><button>🦏</button><button>🐘</button><button>🐲</button><button>🦖</button><button>🦁</button><button>🐯</button><button>🐺</button><button>🐼</button></div></div></div>
+<div id="settings" class="modal hidden"><div class="modalBox"><button id="closeSettings">×</button><small>APPEARANCE</small><h2>Pengaturan</h2><label class="switchRow">Efek animasi <input type="checkbox" id="fx" checked><i></i></label><label class="switchRow">Ultra dark <input type="checkbox" id="dark"><i></i></label></div></div>
+<script src="script.js"></script>
+</body></html>
